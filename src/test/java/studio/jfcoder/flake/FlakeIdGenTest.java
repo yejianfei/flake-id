@@ -31,21 +31,19 @@ public class FlakeIdGenTest {
 
 
         for (int i = 0; i < count; i++) {
-            new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        long id = flake.next();
-                        Thread.sleep(random.nextInt(100));
-                        synchronized (tasks) {
-                            ids.add(id);
-                            tasks.add(Thread.currentThread().getId());
-                        }
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+            new Thread(() -> {
+                try {
+                    long id = flake.next();
+                    Thread.sleep(random.nextInt(100));
+                    synchronized (tasks) {
+                        ids.add(id);
+                        tasks.add(Thread.currentThread().getId());
                     }
 
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
             }).start();
         }
 
@@ -54,11 +52,6 @@ public class FlakeIdGenTest {
         }
 
         assertEquals(ids.size(), count);
-    }
-
-    @Test
-    public void testSpringBoot() throws Exception {
-
     }
 
 }
