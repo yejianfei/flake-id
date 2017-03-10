@@ -4,7 +4,7 @@
 
     <groupId>studio.jfcoder</groupId>
     <artifactId>flake-id</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>flake id genrator</name>
     <description>Project to demonstrate GitHub Maven plugins</description>
     <url>https://github.com/kevinsawicki/github-maven-example</url>
@@ -26,7 +26,7 @@
         <url>https://github.com/yejianfei/flake-id</url>
         <connection>scm:git:git@github.com:yejianfei/flake-id.git</connection>
         <developerConnection>scm:git:git@github.com:yejianfei/flake-id.git</developerConnection>
-      <tag>flake-id-0.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>
